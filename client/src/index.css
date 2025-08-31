@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile App Styles */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Ensure fixed elements stay above viewport */
+@supports (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
+/* Mobile navigation animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-nav {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Enhanced mobile touch targets */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Smooth scrolling for mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Mobile-optimized gradients */
+.mobile-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Loading animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --background: hsl(285, 100%, 99%);
+  --foreground: hsl(270, 15%, 11%);
+  --muted: hsl(285, 20%, 96%);
+  --muted-foreground: hsl(270, 10%, 45%);
+  --popover: hsl(285, 100%, 99%);
+  --popover-foreground: hsl(270, 15%, 11%);
+  --card: hsl(285, 90%, 98%);
+  --card-foreground: hsl(270, 15%, 11%);
+  --border: hsl(285, 30%, 90%);
+  --input: hsl(285, 30%, 90%);
+  --primary: hsl(264, 83%, 70%);
+  --primary-foreground: hsl(285, 100%, 99%);
+  --secondary: hsl(285, 20%, 96%);
+  --secondary-foreground: hsl(270, 15%, 11%);
+  --accent: hsl(285, 20%, 96%);
+  --accent-foreground: hsl(270, 15%, 11%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(60, 9%, 98%);
+  --ring: hsl(264, 83%, 70%);
+  --radius: 1rem;
+  
+  /* Wellness-specific colors */
+  --lavender-50: hsl(285, 100%, 99%);
+  --lavender-100: hsl(285, 60%, 95%);
+  --lavender-200: hsl(285, 50%, 90%);
+  --lavender-300: hsl(285, 45%, 82%);
+  --lavender-400: hsl(264, 83%, 78%);
+  --lavender-500: hsl(264, 83%, 70%);
+  --lavender-600: hsl(257, 87%, 65%);
+  --lavender-700: hsl(248, 95%, 60%);
+  
+  --cream-50: hsl(48, 100%, 96%);
+  --cream-100: hsl(48, 100%, 93%);
+  --cream-200: hsl(48, 100%, 87%);
+  
+  --wellness-gradient: linear-gradient(135deg, var(--lavender-50) 0%, var(--cream-50) 50%, var(--lavender-100) 100%);
+}
+
+.dark {
+  --background: hsl(270, 25%, 8%);
+  --foreground: hsl(285, 100%, 98%);
+  --muted: hsl(270, 20%, 12%);
+  --muted-foreground: hsl(285, 20%, 70%);
+  --popover: hsl(270, 25%, 8%);
+  --popover-foreground: hsl(285, 100%, 98%);
+  --card: hsl(270, 20%, 10%);
+  --card-foreground: hsl(285, 100%, 98%);
+  --border: hsl(270, 20%, 18%);
+  --input: hsl(270, 20%, 15%);
+  --primary: hsl(264, 83%, 70%);
+  --primary-foreground: hsl(270, 25%, 8%);
+  --secondary: hsl(270, 20%, 12%);
+  --secondary-foreground: hsl(285, 100%, 98%);
+  --accent: hsl(270, 20%, 12%);
+  --accent-foreground: hsl(285, 100%, 98%);
+  --destructive: hsl(0, 62%, 50%);
+  --destructive-foreground: hsl(285, 100%, 98%);
+  --ring: hsl(264, 83%, 70%);
+  
+  /* Dark mode wellness-specific colors */
+  --lavender-50: hsl(270, 25%, 8%);
+  --lavender-100: hsl(270, 20%, 12%);
+  --lavender-200: hsl(270, 20%, 16%);
+  --lavender-300: hsl(270, 20%, 20%);
+  --lavender-400: hsl(264, 83%, 65%);
+  --lavender-500: hsl(264, 83%, 70%);
+  --lavender-600: hsl(257, 87%, 75%);
+  --lavender-700: hsl(248, 95%, 80%);
+  
+  --cream-50: hsl(270, 20%, 10%);
+  --cream-100: hsl(270, 15%, 14%);
+  --cream-200: hsl(270, 10%, 18%);
+  
+  --wellness-gradient: linear-gradient(135deg, hsl(270, 25%, 8%) 0%, hsl(270, 20%, 12%) 50%, hsl(270, 20%, 10%) 100%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: var(--wellness-gradient);
+    color: var(--foreground);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .wellness-card {
+    @apply bg-white/70 backdrop-blur-sm rounded-3xl border border-white/30 shadow-xl;
+  }
+  
+  .dark .wellness-card {
+    @apply bg-gray-800/70 border-gray-700/30 shadow-2xl;
+  }
+  
+  .wellness-card:hover {
+    @apply shadow-2xl;
+  }
+  
+  .dark .wellness-card:hover {
+    @apply shadow-purple-500/20;
+  }
+  
+  .agent-card {
+    @apply wellness-card p-6 transition-all duration-300;
+  }
+  
+  .mood-button {
+    @apply p-3 bg-white/80 rounded-xl hover:bg-white/90 transition-all duration-200 text-center cursor-pointer;
+  }
+  
+  .dark .mood-button {
+    @apply bg-gray-800/80 hover:bg-gray-700/90 text-gray-100;
+  }
+  
+  .mood-button.active {
+    @apply bg-gradient-to-br from-purple-100 to-pink-100 border-2 border-purple-300 shadow-md;
+  }
+  
+  .dark .mood-button.active {
+    @apply bg-gradient-to-br from-purple-900/50 to-pink-900/50 border-purple-500 text-purple-100;
+  }
+  
+  .glassmorphism {
+    @apply bg-white/60 backdrop-blur-md border border-white/20;
+  }
+  
+  .dark .glassmorphism {
+    @apply bg-gray-800/60 border-gray-700/20;
+  }
+  
+  /* Dark mode for specific background sections */
+  .dark .bg-indigo-50\/80 {
+    @apply bg-gray-800/80;
+  }
+  
+  .dark .bg-indigo-100 {
+    @apply bg-gray-700;
+  }
+  
+  .dark .bg-white\/50 {
+    @apply bg-gray-800/50;
+  }
+  
+  .dark .bg-white\/80 {
+    @apply bg-gray-800/80;
+  }
+  
+  .collaboration-pulse {
+    @apply animate-pulse bg-green-400 rounded-full;
+  }
+}
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  .wellness-gradient {
+    background: var(--wellness-gradient);
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom animations for agents */
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.agent-bounce {
+  animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-purple-300 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-purple-400;
+}
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}

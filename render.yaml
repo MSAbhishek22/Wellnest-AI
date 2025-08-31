@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: wellnest-ai
+    env: node
+    plan: starter
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        fromService:
+          type: web
+          name: wellnest-ai
+          property: port
