@@ -86,8 +86,8 @@ WellNest.AI is a modern, responsive web application that combines multiple AI ag
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/wellnest-ai.git
-   cd wellnest-ai
+   git clone https://github.com/MSAbhishek22/Wellnest-AI.git
+   cd Wellnest-AI
    ```
 
 2. **Install dependencies**
