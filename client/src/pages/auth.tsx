@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, Shield, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import Hero3D from "@/components/Hero3D";
 
 export default function Auth() {
   const [, setLocation] = useLocation();
@@ -112,6 +113,26 @@ export default function Auth() {
             <Heart className="text-green-600 dark:text-green-400" size={24} />
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-300">Personal</p>
+        </div>
+      </motion.div>
+
+      {/* 3D wellness garden — first-load signature, drag to spin */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.45 }}
+        className="mx-auto mb-8 w-full max-w-md px-6"
+      >
+        <div className="overflow-hidden rounded-3xl border border-purple-100 dark:border-gray-700 bg-white/60 dark:bg-gray-800/60 shadow-lg backdrop-blur-sm">
+          <Hero3D className="h-[220px] w-full" />
+          <p className="border-t border-purple-100 dark:border-gray-700 px-4 py-2 text-center text-xs text-gray-500 dark:text-gray-400">
+            Your wellness garden, in 3D — drag to spin
+          </p>
+        </div>
+        <div className="mt-4 space-y-1 text-center text-sm text-gray-600 dark:text-gray-300">
+          <p><span className="font-semibold text-gray-800 dark:text-gray-100">The problem:</span> health plans, pills and check-ins pile up — and get harder to keep up with.</p>
+          <p><span className="font-semibold text-gray-800 dark:text-gray-100">The fix:</span> one calm daily plan — movement, food, check-ins and a listening ear.</p>
+          <p><span className="font-semibold text-gray-800 dark:text-gray-100">The outcome:</span> small steady days, not big promises.</p>
         </div>
       </motion.div>
 
